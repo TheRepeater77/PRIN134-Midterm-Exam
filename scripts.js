@@ -90,3 +90,23 @@ next_btn.addEventListener("click",()=>{
     console.log(current_card);
 });
 /* Next Button Button END ================ */
+
+/* ================ Last Button START */
+prev_btn.addEventListener("click",()=>{
+    if(current_card > 0){
+        current_card--;
+    } else {
+        current_card = cards.length-1;
+    }
+    cards.forEach((card,i) => {
+        if(current_card == i && !card.classList.contains("card-selected")){
+            card.classList.toggle("card-selected");
+            card.classList.toggle("active");
+        } else if (card.classList.contains("card-selected")) {
+            card.classList.toggle("card-selected");
+            card.classList.toggle("active");
+        }
+    });
+    console.log(current_card);
+});
+/* Last Button Button END ================ */
