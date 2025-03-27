@@ -7,6 +7,8 @@ const pet_all = document.querySelector("#btn-select-all");
 const unpet_all = document.querySelector("#btn-unselect-all");
 const toLast_btn = document.querySelector("#btn-select-last");
 const toFirst_btn = document.querySelector("#btn-select-first");
+const next_btn = document.querySelector("#btn-select-next");
+const prev_btn = document.querySelector("#btn-select-previous");
 
 let current_card = 0;
 
@@ -46,12 +48,12 @@ toLast_btn.addEventListener("click",()=>{
     if(first_card.classList.contains("card-selected")){
         first_card.classList.toggle("card-selected");
         first_card.classList.toggle("active");   
-        current_card = 0;
     }
     if(!last_card.classList.contains("card-selected")){
         last_card.classList.toggle("card-selected");
         last_card.classList.toggle("active");
     }
+    current_card = cards.length-1;
 });
 /* Last Button Button END ================ */
 
@@ -64,7 +66,27 @@ toFirst_btn.addEventListener("click",()=>{
     if(last_card.classList.contains("card-selected")){
         last_card.classList.toggle("card-selected");
         last_card.classList.toggle("active");
-        current_card = cards.length-1;
     }
+    current_card = 0;
 });
 /* To First Button Button END ================ */
+
+/* ================ Next Button START */
+next_btn.addEventListener("click",()=>{
+    if(current_card < cards.length-1){
+        current_card++;
+    } else {
+        current_card = 0;
+    }
+    cards.forEach((card,i) => {
+        if(current_card == i && !card.classList.contains("card-selected")){
+            card.classList.toggle("card-selected");
+            card.classList.toggle("active");
+        } else if (card.classList.contains("card-selected")) {
+            card.classList.toggle("card-selected");
+            card.classList.toggle("active");
+        }
+    });
+    console.log(current_card);
+});
+/* Next Button Button END ================ */
