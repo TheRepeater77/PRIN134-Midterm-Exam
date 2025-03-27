@@ -9,6 +9,8 @@ const toLast_btn = document.querySelector("#btn-select-last");
 const toFirst_btn = document.querySelector("#btn-select-first");
 const next_btn = document.querySelector("#btn-select-next");
 const prev_btn = document.querySelector("#btn-select-previous");
+const banner = document.querySelector(".banner-content");
+banner.style.animationDuration = "2s";
 
 let current_card = 0;
 
@@ -91,7 +93,7 @@ next_btn.addEventListener("click",()=>{
 });
 /* Next Button Button END ================ */
 
-/* ================ Last Button START */
+/* ================ Previous Button START */
 prev_btn.addEventListener("click",()=>{
     if(current_card > 0){
         current_card--;
@@ -109,4 +111,10 @@ prev_btn.addEventListener("click",()=>{
     });
     console.log(current_card);
 });
-/* Last Button Button END ================ */
+/* Previous Button END ================ */
+
+/* ================ Banner Content START */
+banner.addEventListener("click",()=>{
+    banner.classList.toggle("animate__tada");
+});
+/* Banner Content END ================ */
